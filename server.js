@@ -13,15 +13,23 @@ const app = http.createServer((req, res, err)=>{
 		let JSONstream = returnFileStream("Goals.json",res).pipe(res);
 	}
 
+	//  USE THE res.appendHead function and the setStatus function
+	// to add the A-C-A-O:* header early on
+
 	else if(path == "/pushToJson" && req.method == "OPTIONS"){
 		// did not find method in COR header Access-Control-Allow-Methods
-		res.writeHead(200, {"content-type":"text/json","Access-Control-Allow-Origin":"*"});
+		res.writeHead(200, {"content-type":"text/json","Access-Control-Allow-Origin":"*","Access-Control-Allow-Methods":"*"});
 		console.log(req.url);
 		console.log("\n",URL);
 		console.log("GOT a modifing request");
 		res.end("done!");
 		// modifyFile();
 	} 
+	else if(path == "/pushToJson" && req.method == "PUT"){
+		console.log(URL);
+		console.log("PUT REQUEST FOUND !!");
+		res.end("confusing!!");
+	}
 	else{
 		res.writeHead(404, {"content-type":"text/plain","Access-Control-Allow-Origin":"*"});
 		console.log(`undefined request received for ${path}`);

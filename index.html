@@ -11,8 +11,8 @@
 	</h1>
 	<div class="inter">
 		<label for="goalText">Goal body </label>
-		<input type="text" name="goalText" id="goalText" man="320" class="inputField">
-		<input type="date" id="duedate">
+		<input type="text" name="goalText" id="goalText" man="320" class="inputField" required>
+		<input type="date" id="duedate" required="true">
 		<button class="add" type="submit" method="put" onclick="addGoal()">AddGoal</button>
 	</div>
 	<div class="goals">
@@ -21,7 +21,7 @@
 <!-- 			<h2 class="goalBODY" onclick="fragment(this)">Complete the nodeJS server-project</h2>
 			<button type="radio" name="accomplished" onclick="accomplished(this)">DONE</button> -->
 	
-			<table>
+			<table id="GOALS">
 				<tr>
 					<th class="thsr">Sr.no.</th>
 					<th class="thbody">body</th>

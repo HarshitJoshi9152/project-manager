@@ -1,0 +1,19 @@
+# Tueday 2 October 2018 : HarshitJoshi9152 /~
+	1. decided to make a new db file for every new user that joins and 1 users.db file to keep track of the registered users.
+	this means that this JSON structure is invalid now ...
+	[
+		{
+			"user_name":[
+				{
+				"accomplished":false,
+				"goalBody":"input from goalText input form.",
+				"dueDate":"DD-MM-YYYY",
+				"dateRegistered":"DD-MM-YYYY"
+				}
+			]
+		}
+	]
+
+	2. i think that interacting with the DOM to get the srno. is releavtively slower than putting a srno in the requested object .
+	----------------------------------------------------------------------
+

@@ -7,6 +7,7 @@ function accomplised(elm){
 }
 
 function addGoal(){
+	// Dont rust user input force him to provide the correct input
 	let text = document.getElementById('goalText').value;
 	let duedate = document.getElementById('duedate').value;
 	let date = new Date()
@@ -22,8 +23,26 @@ function addGoal(){
 }
 
 function make_table(data){
-	console.log("made table");
-	console.log(data);
+	// APPEND HTML CHILDREN
+	console.log(document.getElementById("GOALS"));
+	let test = document.getElementById("GOALS");
+	let row = document.createElement("tr");
+	let srno = document.createElement("td");
+	srno.appendChild(document.createTextNode(String(test.childElementCount+1)));
+	let body = document.createElement("td");
+	body.appendChild(document.createTextNode(data.goalBody));
+	let date_reg = document.createElement("td");
+	date_reg.appendChild(document.createTextNode(data.dateRegistered));
+	let date_exp = document.createElement("td");
+	date_exp.appendChild(document.createTextNode(data.dueDate));
+	let acc = document.createElement("td");
+	acc.appendChild(document.createTextNode(data.accomplished));
+	row.appendChild(srno);
+	row.appendChild(body);
+	row.appendChild(date_reg);
+	row.appendChild(date_exp);
+	row.appendChild(acc);
+	test.appendChild(row);
 }
 
 window.onload = function(e){
@@ -42,9 +61,13 @@ function getGoals(file, method = "GET", acceptType, info){
 			let data = JSON.parse(xhttp.responseText);
 			make_table(data);
 		} catch(e){
-			// case 1 data is unparsable//
+			// case 1 data is unparsable// maybe 404
 			//  -> make a request to developer to review the data.
-			// case 2 
+			// case 2
+			if(xhttp.status == 404){
+				console.error("404 Not found !! bad request");
+				return -1;
+			}
 			console.log(e);
 		}
 		finally{
