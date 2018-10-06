@@ -1,3 +1,4 @@
+
 # Tueday 2 October 2018 : HarshitJoshi9152 /~
 	1. decided to make a new db file for every new user that joins and 1 users.db file to keep track of the registered users.
 	this means that this JSON structure is invalid now ...
@@ -17,3 +18,16 @@
 	2. i think that interacting with the DOM to get the srno. is releavtively slower than putting a srno in the requested object .
 	----------------------------------------------------------------------
 
+
+# Wednesday 3 October 2018 : HarshitJoshi9152 /~
+	1. improved the make_table code by making another helper function
+	----------------------------------------------------------------------
+
+
+# Saturday 6 October 2018 : HarshitJoshi9152 /~
+	1. came to know how to collect POST request data.
+	2. changed the data structure to an array.
+	3. we will experiment with the <form action="POST"> tag in html for submitting the data
+	4. no - in dateRegistered key on object sent by client.
+	5. the more i progress in the development of our application the more i feel that i should be using a 3rd party module.
+	6. work done now we have to remove all the unnecessary console.log() calls and commit the code.

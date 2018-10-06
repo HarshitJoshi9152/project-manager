@@ -18,31 +18,32 @@ function addGoal(){
 		"dueDate":duedate,
 		"dateRegistered":currentDate
 	}
-	getGoals("http://localhost:8080/pushToJson","PUT", false,info);
+	getGoals("http://localhost:8080/pushToJson","POST", false,JSON.stringify(info));
 	console.log(info);
 }
 
-function make_table(data){
-	// APPEND HTML CHILDREN
-	console.log(document.getElementById("GOALS"));
-	let test = document.getElementById("GOALS");
+function make_table({srno, goalBody, dateRegistered, dueDate, accomplished}){
 	let row = document.createElement("tr");
-	let srno = document.createElement("td");
-	srno.appendChild(document.createTextNode(String(test.childElementCount+1)));
-	let body = document.createElement("td");
-	body.appendChild(document.createTextNode(data.goalBody));
-	let date_reg = document.createElement("td");
-	date_reg.appendChild(document.createTextNode(data.dateRegistered));
-	let date_exp = document.createElement("td");
-	date_exp.appendChild(document.createTextNode(data.dueDate));
-	let acc = document.createElement("td");
-	acc.appendChild(document.createTextNode(data.accomplished));
-	row.appendChild(srno);
-	row.appendChild(body);
-	row.appendChild(date_reg);
-	row.appendChild(date_exp);
-	row.appendChild(acc);
-	test.appendChild(row);
+	makeElm("td",srno,row);
+	makeElm("td",goalBody,row);
+	makeElm("td",dateRegistered,row);
+	makeElm("td",dueDate,row);
+	makeElm("td",String(accomplished),row);
+	document.getElementById("GOALS").appendChild(row);
+}
+
+function makeElm(element, textNode, parent) {
+	let elm = document.createElement(element);
+	if(textNode){
+		let node = document.createTextNode(textNode);
+		elm.appendChild(node);
+	}
+	if(parent && typeof parent == "object"){
+		parent.appendChild(elm);
+		return 0;
+	} else{
+		return elm;
+	}
 }
 
 window.onload = function(e){
@@ -54,21 +55,24 @@ window.onload = function(e){
 function getGoals(file, method = "GET", acceptType, info){
 	const xhttp = new XMLHttpRequest();
 	xhttp.onload = function(){
-		console.log(xhttp.responseText);
 		// we should first see the status and code and then respond accordingly
 		try{
-			console.log("trying!!");
 			let data = JSON.parse(xhttp.responseText);
-			make_table(data);
+			// changed the data type to an array 6 October 2018
+			for(let i of data){
+				make_table(i);
+			}
 		} catch(e){
 			// case 1 data is unparsable// maybe 404
 			//  -> make a request to developer to review the data.
 			// case 2
 			if(xhttp.status == 404){
+				// if code is 404 why are we even parseing it #scopeForImprovement
 				console.error("404 Not found !! bad request");
 				return -1;
+			} else{
+				console.log(e);
 			}
-			console.log(e);
 		}
 		finally{
 			// code ..
@@ -80,6 +84,7 @@ function getGoals(file, method = "GET", acceptType, info){
 		xhttp.setRequestHeader("accept",acceptType);
 	}
 	if(info){
+		console.log("sending a post one")
 		xhttp.send(info);
 	} else{
 		xhttp.send();

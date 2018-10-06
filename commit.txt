@@ -1,11 +1,4 @@
-Tuesday, 2 October 17:49 India 
-another step towards the 1st version of the working/fully-functional app
-just minor improvements, fixed typos, 1 user 1 db system, ideas of a Registered-Users DB, ideas for improving GUI :
-adding standard login system, idea of adding an email-reminder service, completed the make_table(data) function, 
-figured out problems with the PUT request and the repetitive a-c-o-p:* header,
-intoduced a project log file to document the mindset and decisions taken by the developer.
+Saturday 6 October 2018 India
 
-still no sql support.
-scope for improvement of code in make_table(data) function of script.js.
+check the project log of this date to get an idea of the work done and ideas implemented
 
-NOTE: no idea has yet been implemented in the commited version.
