@@ -24,6 +24,7 @@ function addGoal(){
 
 function make_table({srno, goalBody, dateRegistered, dueDate, accomplished}){
 	let row = document.createElement("tr");
+	console.log(arguments);
 	makeElm("td",srno,row);
 	makeElm("td",goalBody,row);
 	makeElm("td",dateRegistered,row);
@@ -47,35 +48,56 @@ function makeElm(element, textNode, parent) {
 }
 
 window.onload = function(e){
-	// code ..
+	// check for internet connection
 	getGoals("http://localhost:8080/getJSON","GET","text/json");
 }
 
 //  Dont worry we will change the name in produnction release
 function getGoals(file, method = "GET", acceptType, info){
 	const xhttp = new XMLHttpRequest();
+	// xhttp.onReadyStateChange = function(){
+	// 	if(this.readyState == 4 && this.status == 200){
+	//
+	// 	}
+	// 	else if(this.readyState == 0){
+	// 		// server is down
+	// 	}
+	// 	else{
+	// 		// status is probably 404;
+	// 	}
+	// 	console.log(this.readyState-1);
+	// 	console.log(this.readState)
+	// }
+
+	// we are yet to change the onload function don't develop the onload further
+	// because we need error handling .
+
 	xhttp.onload = function(){
 		// we should first see the status and code and then respond accordingly
+		/* we should remove the try catch as we are not in early stages of
+		   development */
 		try{
-			let data = JSON.parse(xhttp.responseText);
-			// changed the data type to an array 6 October 2018
-			for(let i of data){
-				make_table(i);
+			console.log(xhttp.status);
+			if(xhttp.status === 200){
+				let data = JSON.parse(xhttp.responseText);
+				for(let i of data){
+					make_table(i);
+				}
+			} else{
+					console.log(xhttp)
 			}
-		} catch(e){
-			// case 1 data is unparsable// maybe 404
-			//  -> make a request to developer to review the data.
-			// case 2
+		}
+		catch(e){
 			if(xhttp.status == 404){
 				// if code is 404 why are we even parseing it #scopeForImprovement
 				console.error("404 Not found !! bad request");
-				return -1;
+				return 404;
 			} else{
 				console.log(e);
 			}
 		}
 		finally{
-			// code ..
+
 		}
 	}
 	xhttp.open(method,file,true);

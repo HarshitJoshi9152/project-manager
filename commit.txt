@@ -1,4 +1,6 @@
-Saturday 6 October 2018 India
+Monday 08 October 2018 India
 
-check the project log of this date to get an idea of the work done and ideas implemented
+fixed the unordered srno mistake
 
+we need to work on the front end, especially the login page and the goals.
+we should now introduce the project management idea in the ProjectLog.txt
