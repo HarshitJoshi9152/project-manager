@@ -25,12 +25,9 @@ const app = http.createServer((req, res, err)=>{
 		})
 		req.on("end",()=>{
 			// data has been collected
-			console.log(clientdata)
 			clientdata = JSON.parse(clientdata);
-			console.log(clientdata);
 			appendJSONFile("./data/userdata/goals/Goals.json",clientdata);
 		})
-		console.log(clientdata);
 		// we will use the multiusers structure soon
 		res.writeHead(200, {"content-type":"text/json","Access-Control-Allow-Origin":"*","Access-Control-Allow-Methods":"*"});
 		res.end("goal registered !!");
