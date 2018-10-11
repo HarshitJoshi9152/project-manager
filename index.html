@@ -12,7 +12,7 @@
 	<div class="inter">
 		<!-- we have to experiment with the submit button -->
 		<label for="goalText">Goal body </label>
-		<input type="text" name="goalText" id="goalText" man="320" class="inputField" required>
+		<input type="text" name="goalText" id="goalText" maxlength="320" class="inputField" required="true">
 		<input type="date" id="duedate" required="true">
 		<button class="add" type="submit" method="put" onclick="addGoal()">AddGoal</button>
 	</div>
@@ -21,7 +21,7 @@
 			<!-- tag for any icon -->
 <!-- 			<h2 class="goalBODY" onclick="fragment(this)">Complete the nodeJS server-project</h2>
 			<button type="radio" name="accomplished" onclick="accomplished(this)">DONE</button> -->
-	
+
 			<table id="GOALS">
 				<tr>
 					<th class="thsr">Sr.no.</th>

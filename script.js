@@ -8,10 +8,22 @@ function accomplised(elm){
 
 function addGoal(){
 	// Dont rust user input force him to provide the correct input
-	let text = document.getElementById('goalText').value;
+	let text = document.getElementById('goalText').value.trim();
 	let duedate = document.getElementById('duedate').value;
 	let date = new Date()
-	let currentDate = date.getDate().toString() +" "+ (date.getMonth()+1) +" "+ date.getFullYear();
+	let currentDate = date.getDate().toString() +"-"+ (date.getMonth()+1) +"-"+ date.getFullYear();
+	// checking the user-input
+	if(duedate == ""){
+			// displayError and react to it
+			window.alert('error duedate not selected!!');
+			console.error("no due date specified!!");
+			return -1;
+	}
+	if(text == ""){
+		window.alert('error no goal body!!');
+		console.error("no due date specified!!");
+		return -1;
+	}
 	let info = {
 		"accomplished":false,
 		"goalBody":text,
@@ -19,12 +31,11 @@ function addGoal(){
 		"dateRegistered":currentDate
 	}
 	getGoals("http://localhost:8080/pushToJson","POST", false,JSON.stringify(info));
-	console.log(info);
+	// console.log(info);
 }
 
 function make_table({srno, goalBody, dateRegistered, dueDate, accomplished}){
 	let row = document.createElement("tr");
-	console.log(arguments);
 	makeElm("td",srno,row);
 	makeElm("td",goalBody,row);
 	makeElm("td",dateRegistered,row);
@@ -78,6 +89,7 @@ function getGoals(file, method = "GET", acceptType, info){
 		   development */
 		try{
 			console.log(xhttp.status);
+			console.log(xhttp.responseText);
 			if(xhttp.status === 200){
 				let data = JSON.parse(xhttp.responseText);
 				for(let i of data){

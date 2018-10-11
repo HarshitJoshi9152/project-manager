@@ -1,35 +1,67 @@
 [{
-    "srno": 1,
-    "accomplished": false,
-    "goalBody": "we have to add the vimdiff REQ objects observation to the google drive javascript repo",
-    "dueDate": "DD-MM-YYYY",
-    "dateRegistered": "DD-MM-YYYY"
-  },
-  {
-    "srno": 2,
-    "accomplished": false,
-    "goalBody": "we have to improve the CSS of this page",
-    "dueDate": "DD-MM-YYYY",
-    "dateRegistered": "DD-MM-YYYY"
-  },
-  {
-    "srno": 3,
-    "accomplished": false,
-    "goalBody": "the most important goal of someone's life",
-    "dueDate": "2018-10-23",
-    "dateRegistered": "6 10 2018"
-  },
-  {
-    "accomplished": false,
-    "goalBody": "Object-oriented programming;4 pillars;frameworks;optimisation;good programming",
-    "dueDate": "",
-    "dateRegistered": "8 10 2018",
-    "srno": 4
-  }, {
-    "accomplished": false,
-    "goalBody": "adasdas",
-    "dueDate": "2018-10-17",
-    "dateRegistered": "8 10 2018",
-    "srno": 5
-  }
-]
+  "srno": 1,
+  "accomplished": false,
+  "goalBody": "we have to add the vimdiff REQ objects observation to the google drive javascript repo",
+  "dueDate": "DD-MM-YYYY",
+  "dateRegistered": "DD-MM-YYYY"
+}, {
+  "srno": 2,
+  "accomplished": false,
+  "goalBody": "we have to improve the CSS of this page",
+  "dueDate": "DD-MM-YYYY",
+  "dateRegistered": "DD-MM-YYYY"
+}, {
+  "srno": 3,
+  "accomplished": false,
+  "goalBody": "the most important goal of someone's life",
+  "dueDate": "2018-10-23",
+  "dateRegistered": "6-10-2018"
+}, {
+  "accomplished": false,
+  "goalBody": "Object-oriented programming;4 pillars;frameworks;optimisation;good programming",
+  "dueDate": "19-11-2019",
+  "dateRegistered": "8-10-2018",
+  "srno": 4
+}, {
+  "accomplished": false,
+  "goalBody": "adasdas",
+  "dueDate": "2018-10-17",
+  "dateRegistered": "8-10-2018",
+  "srno": 5
+}, {
+  "accomplished": false,
+  "goalBody": "new goal ",
+  "dueDate": "9-10-2012",
+  "dateRegistered": "9-10-2018",
+  "srno": 6
+}, {
+  "accomplished": false,
+  "goalBody": "add important to the date input",
+  "dueDate": "9-10-2099",
+  "dateRegistered": "9-10-2018",
+  "srno": 7
+}, {
+  "accomplished": false,
+  "goalBody": "display the newly submited goal",
+  "dueDate": "9-10-2019",
+  "dateRegistered": "9-10-2018",
+  "srno": 8
+}, {
+  "accomplished": false,
+  "goalBody": "add the remove or accomplish goal utility",
+  "dueDate": "2018-10-17",
+  "dateRegistered": "9-10-2018",
+  "srno": 9
+}, {
+  "accomplished": false,
+  "goalBody": "read the nodeJS http DOCS",
+  "dueDate": "2018-10-31",
+  "dateRegistered": "9-10-2018",
+  "srno": 10
+}, {
+  "accomplished": false,
+  "goalBody": "learn python",
+  "dueDate": "2018-10-31",
+  "dateRegistered": "9-10-2018",
+  "srno": 11
+}]

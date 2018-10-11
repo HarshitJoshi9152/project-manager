@@ -18,19 +18,26 @@ const app = http.createServer((req, res, err)=>{
 	// to add the A-C-A-O:* header early on
 
 	else if(path == "/pushToJson" && req.method == "POST"){
+		// 10/9/18 now we will use the action and method attr to reduce code
 		let clientdata = "";
 		req.on("data",(chunk)=>{
 			// data collection starts
+			// ok we cant use this with the html form submit !!
 			clientdata+=chunk;
 		})
 		req.on("end",()=>{
 			// data has been collected
-			clientdata = JSON.parse(clientdata);
-			appendJSONFile("./data/userdata/goals/Goals.json",clientdata);
+			try{
+				clientdata = JSON.parse(appendJSONFile("./data/userdata/goals/Goals.json",JSON.parse(clientdata)));
+			} catch(e){
+				console.log(e);
+			}
+			finally{}
 		})
 		// we will use the multiusers structure soon
 		res.writeHead(200, {"content-type":"text/json","Access-Control-Allow-Origin":"*","Access-Control-Allow-Methods":"*"});
-		res.end("goal registered !!");
+		console.log(clientdata);
+		res.end(JSON.stringify([clientdata]));
 	}
 	else{
 		res.writeHead(404, {"content-type":"text/plain","Access-Control-Allow-Origin":"*"});
@@ -81,9 +88,8 @@ function appendJSONFile(file, toAppend){
 	// })
 	let data = fs.readFileSync(file,"utf8");
 	data = JSON.parse(data);
-	// appending the data here , i guess we should use an array
 	toAppend.srno = data[data.length-1].srno+1;
 	data.push(toAppend);
 	fs.writeFileSync(file,JSON.stringify(data));
-	console.log("Task done file appended with data");
+	return JSON.stringify(toAppend);
 }

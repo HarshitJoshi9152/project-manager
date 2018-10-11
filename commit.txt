@@ -2,5 +2,4 @@ Monday 08 October 2018 India
 
 fixed the unordered srno mistake
 
-we need to work on the front end, especially the login page and the goals.
-we should now introduce the project management idea in the ProjectLog.txt
+we were unable to add the immediate refresh feature without using AJAX, i can use AJAX but it will put more load on my server.{4:32 10/9/18}
