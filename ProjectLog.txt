@@ -16,12 +16,12 @@
 	]
 
 	2. i think that interacting with the DOM to get the srno. is relatively slower than putting a srno in the requested object .
-	----------------------------------------------------------------------
+	------------------------------------------------------------------------------
 
 
 # Wednesday 3 October 2018 : HarshitJoshi9152 /~
 	1. improved the make_table code by making another helper function
-	----------------------------------------------------------------------
+	------------------------------------------------------------------------------
 
 
 # Saturday 6 October 2018 : HarshitJoshi9152 /~
@@ -31,6 +31,7 @@
 	4. no - in dateRegistered key on object sent by client.
 	5. the more i progress in the development of our application the more i feel that i should be using a 3rd party module.
 	6. work done now we have to remove all the unnecessary console.log() calls and commit the code.
+	------------------------------------------------------------------------------
 
 
 # Monday 8 October 2018 : HarshitJoshi9152 /~
@@ -40,8 +41,10 @@
 	4. we have to make some interactive change in the state when we encounter a serverDown event, well we realised that we can just use a xhttp.readyState to get the state of the request but we are using the xhttp.onReadyStateChange event and the readyState doesnt change if the server is down so i guess we will have to use a HEAD XMLHttpRequest to check the internet connection of client and react accordingly.
 	5. remember we have to use the Async methods in server.js
 	6. we came to know that we cannot send a GET request with a body using the XmlHTTPRequest.
+	------------------------------------------------------------------------------
 
 
 # Friday 12 October 2018 : HarshitJoshi9152 /~
 	1. so our return value problem was associated with scopes in javascript.
-	
+	2. we plan to make more webpages like a DashBoard, login and a DB page.
+	------------------------------------------------------------------------------
