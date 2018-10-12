@@ -27,17 +27,14 @@ const app = http.createServer((req, res, err)=>{
 		})
 		req.on("end",()=>{
 			// data has been collected
-			try{
+			// if file exists and hasConnection === true
 				clientdata = JSON.parse(appendJSONFile("./data/userdata/goals/Goals.json",JSON.parse(clientdata)));
-			} catch(e){
-				console.log(e);
-			}
-			finally{}
+				console.log(clientdata);
+				res.writeHead(200, {"content-type":"text/json","Access-Control-Allow-Origin":"*","Access-Control-Allow-Methods":"*"});
+				console.log(clientdata);
+				res.end(JSON.stringify([clientdata]));
 		})
 		// we will use the multiusers structure soon
-		res.writeHead(200, {"content-type":"text/json","Access-Control-Allow-Origin":"*","Access-Control-Allow-Methods":"*"});
-		console.log(clientdata);
-		res.end(JSON.stringify([clientdata]));
 	}
 	else{
 		res.writeHead(404, {"content-type":"text/plain","Access-Control-Allow-Origin":"*"});

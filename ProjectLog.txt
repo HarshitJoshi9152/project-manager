@@ -40,3 +40,8 @@
 	4. we have to make some interactive change in the state when we encounter a serverDown event, well we realised that we can just use a xhttp.readyState to get the state of the request but we are using the xhttp.onReadyStateChange event and the readyState doesnt change if the server is down so i guess we will have to use a HEAD XMLHttpRequest to check the internet connection of client and react accordingly.
 	5. remember we have to use the Async methods in server.js
 	6. we came to know that we cannot send a GET request with a body using the XmlHTTPRequest.
+
+
+# Friday 12 October 2018 : HarshitJoshi9152 /~
+	1. so our return value problem was associated with scopes in javascript.
+	

@@ -84,9 +84,6 @@ function getGoals(file, method = "GET", acceptType, info){
 	// because we need error handling .
 
 	xhttp.onload = function(){
-		// we should first see the status and code and then respond accordingly
-		/* we should remove the try catch as we are not in early stages of
-		   development */
 		try{
 			console.log(xhttp.status);
 			console.log(xhttp.responseText);
