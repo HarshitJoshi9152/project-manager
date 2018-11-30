@@ -48,3 +48,8 @@
 	1. so our return value problem was associated with scopes in javascript.
 	2. we plan to make more webpages like a DashBoard, login and a DB page.
 	------------------------------------------------------------------------------
+
+
+# Thursday 29 December 2018 : HarshitJoshi9152 /~
+	1. came to know how <FORM method="post"> can be used to send post data and the
+	importance of name attribute .

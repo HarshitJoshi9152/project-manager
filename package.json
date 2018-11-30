@@ -16,5 +16,8 @@
     "node.js"
   ],
   "author": "Harshit Joshi",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "query-string": "^6.2.0"
+  }
 }

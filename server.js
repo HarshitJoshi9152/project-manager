@@ -19,19 +19,28 @@ const app = http.createServer((req, res, err)=>{
 
 	else if(path == "/pushToJson" && req.method == "POST"){
 		// 10/9/18 now we will use the action and method attr to reduce code
+		// let clientdata = [];
 		let clientdata = "";
 		req.on("data",(chunk)=>{
 			// data collection starts
 			// ok we cant use this with the html form submit !!
-			clientdata+=chunk;
+			// clientdata.push(chunk);
+			console.log(typeof chunk);
+			clientdata += chunk;
 		})
 		req.on("end",()=>{
-			// data has been collected
-			// if file exists and hasConnection === true
+				// console.log(clientdata);
+				// // clientdata = Buffer.concat(clientdata).toString();
+				// console.log(decodeURIComponent(clientdata));
+				// let q =url.parse(req.pathname+"?"+decodeURIComponent(clientdata),true);
+				// console.log(q);
+				// q = q.query;
+				// console.log(q.id);
+				// console.log(q["id-2"])
+				// return 0 ;
 				clientdata = JSON.parse(appendJSONFile("./data/userdata/goals/Goals.json",JSON.parse(clientdata)));
 				console.log(clientdata);
 				res.writeHead(200, {"content-type":"text/json","Access-Control-Allow-Origin":"*","Access-Control-Allow-Methods":"*"});
-				console.log(clientdata);
 				res.end(JSON.stringify([clientdata]));
 		})
 		// we will use the multiusers structure soon

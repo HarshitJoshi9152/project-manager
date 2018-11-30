@@ -12,6 +12,7 @@ function addGoal(){
 	let duedate = document.getElementById('duedate').value;
 	let date = new Date()
 	let currentDate = date.getDate().toString() +"-"+ (date.getMonth()+1) +"-"+ date.getFullYear();
+	let ts = Date.now()
 	// checking the user-input
 	if(duedate == ""){
 			// displayError and react to it
@@ -29,33 +30,51 @@ function addGoal(){
 		"goalBody":text,
 		"dueDate":duedate,
 		"dateRegistered":currentDate
+		// "timestamp":ts
 	}
-	getGoals("http://localhost:8080/pushToJson","POST", false,JSON.stringify(info));
+	// now we dont need this BAD code !!
+	getGoals("http://localhost:8080/pushToJson","POST", false,info);
 	// console.log(info);
 }
 
 function make_table({srno, goalBody, dateRegistered, dueDate, accomplished}){
 	let row = document.createElement("tr");
+	console.log("fone")
 	makeElm("td",srno,row);
 	makeElm("td",goalBody,row);
 	makeElm("td",dateRegistered,row);
 	makeElm("td",dueDate,row);
-	makeElm("td",String(accomplished),row);
+	let elm = document.createElement("input");
+	elm.setAttribute("type","checkbox");
+	elm.checked = (accomplished)?true:false;
+	elm.addEventListener("checked",tell)
+	makeElm("td",elm,row);
 	document.getElementById("GOALS").appendChild(row);
+
+	function makeElm(element, node, parent) {
+		let elm = document.createElement(element);
+		if(node){
+			let b;
+			if(typeof node === "string" || typeof node === "number"){
+				b = document.createTextNode(node);
+				elm.appendChild(b)
+			}
+			else if(typeof node === "object"){
+				elm.appendChild(node);
+			}
+		}
+		if(parent && typeof parent == "object"){
+			parent.appendChild(elm);
+			return 0;
+		} else{
+			return elm;
+		}
+	}
 }
 
-function makeElm(element, textNode, parent) {
-	let elm = document.createElement(element);
-	if(textNode){
-		let node = document.createTextNode(textNode);
-		elm.appendChild(node);
-	}
-	if(parent && typeof parent == "object"){
-		parent.appendChild(elm);
-		return 0;
-	} else{
-		return elm;
-	}
+function tell(change){
+	let info = change
+	getGoals("http://localhost:8080/update","POST",false,info);
 }
 
 window.onload = function(e){
@@ -115,7 +134,7 @@ function getGoals(file, method = "GET", acceptType, info){
 		xhttp.setRequestHeader("accept",acceptType);
 	}
 	if(info){
-		console.log("sending a post one")
+		// console.log("sending a post one")
 		xhttp.send(info);
 	} else{
 		xhttp.send();

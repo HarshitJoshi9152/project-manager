@@ -1,0 +1,47 @@
+commit b075b9ecb54f62754ad37c2f79646113064e6ece
+Author: Harshit <hars1614@gmail.com>
+Date:   Fri Oct 12 20:41:39 2018 +0530
+
+    fixed the goals update feature
+
+commit c18d87d25295fbf1e81975d659c935475c56bc0c
+Author: Harshit <hars1614@gmail.com>
+Date:   Fri Oct 12 15:58:25 2018 +0530
+
+    now you can immediately see the latest goals
+
+commit 7838cfaeb670a63ad12a8ac9dc2d3d825598aa9d
+Author: Harshit <hars1614@gmail.com>
+Date:   Thu Oct 11 20:50:34 2018 +0530
+
+    return value not correct
+
+commit f5cca5bd013128d80b27105cbf0b0bf6e068e261
+Author: Harshit <hars1614@gmail.com>
+Date:   Mon Oct 8 19:20:26 2018 +0530
+
+    removed the logs that i used for experimentation
+
+commit 3dd92b8ab7b2a5e44e3fe96734babb0f93ab4468
+Author: Harshit <hars1614@gmail.com>
+Date:   Mon Oct 8 19:19:07 2018 +0530
+
+    gathered a lot of knowledge
+
+commit 60583ea055787d60dd7ba0dbb276d79d36291c74
+Author: Harshit <harsjoshi1614@gmail.com>
+Date:   Sat Oct 6 09:48:06 2018 -0700
+
+    no time for a message git add .
+
+commit e4921567eb9c2080e3071847e82375a374caf921
+Author: Harshit <harsjoshi1614@gmail.com>
+Date:   Tue Oct 2 05:28:56 2018 -0700
+
+    added new Doc files and progressed further
+
+commit 9606851a60d30966871320395e45a14f929a885f
+Author: Harshit <harsjoshi1614@gmail.com>
+Date:   Sun Sep 23 04:11:58 2018 -0700
+
+    first commit

@@ -21,9 +21,11 @@
 			color:yellow;
 		}
 		nav{
-			position:absolute;
+			/* position:absolute; */
+			display:inline-block;
 			top:0;
 			width:100%;
+			margin:auto;
 			background-color: #271122;
 			color:#992398;
 		}
@@ -49,9 +51,9 @@
 		</ul>
 	</nav>
 	<h1>Login</h1>
-	<form action="http://localhost:8080/pushToJson" method="post">
-		<input type="goalBody" placeholder="goal Body" id="body" required="true">
-		<input type="date" required="true">
+	<form action="http://localhost:8080/pushToJson" method="post" >
+		<input type="goalBody" name="id" placeholder="goal Body" id="body" required="true">
+		<input type="date" name="id-2" required="true">
 		<input type="submit" id="submit">
 	</form>
 </body>
